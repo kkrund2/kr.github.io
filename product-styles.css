@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Основные стили */
+body {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4ef;
+    color: #333;
+    min-height: 100vh; /* Высота страницы должна занимать как минимум весь экран */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контент */
+.main-content {
+    flex-grow: 1; /* Это свойство позволяет контенту расширяться, чтобы подвал всегда был внизу */
+}
+
+/* Шапка */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Шапка занимает всю ширину */
+    background-color: rgba(255, 98, 0, 0.9);
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* Логотип */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Контакты */
+.contacts {
+    font-size: 0.9em;
+    display: flex;
+    gap: 15px; /* Отступ между контактами */
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: #ffd700;
+}
+
+/* Корзина */
+.cart-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Отступ, чтобы не прилегала слишком плотно */
+}
+
+.cart-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 10px;
+    vertical-align: middle; /* Выравниваем по центру */
+}
+
+
+
+/* Подвал */
+footer {
+    background-color: #cc5500;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Подвал прижимается к низу страницы */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    margin: 10px 0;
+}
+
+
+/* Стили для выпадающего меню */
+.dropbtn {
+    font-family: 'Playfair Display', sans-serif;
+    background-color: rgba(255, 98, 0, 0);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 98, 0, 0.9);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 98, 0, 0.9);
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color:rgba(255, 98, 0, 0.9);
+}
+
+.show {
+    display: block;
+}
+
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.logo a {
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.logo a:hover {
+    color: #ffd700; /* Цвет при наведении */
+}
+
+
+
+/* Стили карточек */
+.products-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-card {
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Стили модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-left, .modal-right {
+    flex: 1;
+    padding: 10px;
+}
+
+.modal-left {
+    position: relative;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Контейнер карточек товаров */
+.products-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; 
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Стили карточек остаются прежними */
+.product-card {
+    position: relative;
+    width: 250px;
+    height: 380px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+/* Анимация при наведении на карточку */
+.product-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер изображения */
+.product-card-image-wrapper {
+    position: relative;
+    height: 60%;
+    overflow: hidden;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+/* Анимация увеличения изображения при наведении */
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Контейнер контента карточки */
+.product-card-content {
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f8f8, #f1f1f1);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Стили заголовка и текста */
+.product-title {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Стиль кнопки "Купить" */
+.add-to-cart {
+    font-family: 'Playfair Display', sans-serif;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: #fff;
+    background: linear-gradient(145deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(145deg, #feb47b, #ff7e5f);
+    transform: scale(1.1);
+}
+
+/* Стили для заголовка страницы */
+.page-header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    color: #ff7f50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.page-header .underline {
+    width: 180px;
+    height: 3px;
+    background-color: #ff7f50;
+    margin: 0 auto;
+}
+
+/* Стили для текстового блока */
+.intro-text {
+    font-size: 17px;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff8e1;
+}

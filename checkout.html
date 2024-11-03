@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html">Embroidery Store</a>
+        </div>
+        <div class="contacts">
+            <span>Email: info@embroidery.com</span>
+            <span>Phone: +1234567890</span>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#faq">Частые вопросы</a></li>
+                <li><a href="finished-products.html">Готовые продукты</a></li>
+                <li class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Конструктор <span class="arrow">&#9660;</span></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="design.html">Выбор вышивки</a>
+                        <a href="clothes.html">Выбор одежды</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html"><img src="cart-icon.png" alt="Cart"></a>
+        </div>
+    </div>
+</header>
+
+<h1 style="text-align: center; margin-top: 70px;color: #a0522d;">Оформление заказа</h1>
+
+<div class="container">
+    <div class="user-info">
+        <form id="user-info-form">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="surname">Фамилия:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contact-method">Предпочитаемый вид связи:</label>
+            <select id="contact-method" name="contact-method">
+                <option value="phone">Телефон</option>
+                <option value="email">Почта</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="cart-summary">
+        <h2>Ваши товары</h2>
+        <ul id="cart-summary"></ul>
+        <button id="submit-order">Оформить заказ</button> 
+    </div>
+</div>
+
+<script>
+    // Функция проверки на заполненность и корректность полей
+    function validateForm() {
+        let isValid = true;
+        const name = document.getElementById('name');
+        const surname = document.getElementById('surname');
+        const phone = document.getElementById('phone');
+        const email = document.getElementById('email');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Удаляем предыдущие сообщения об ошибках
+        document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+        // Проверка для каждого поля
+        function addErrorMessage(input, message) {
+            const error = document.createElement('div');
+            error.className = 'error-message';
+            error.textContent = message;
+            error.style.color = 'red';
+            error.style.fontSize = '12px';
+            input.style.borderColor = 'red';
+            input.after(error);
+            isValid = false;
+        }
+
+        if (!name.value) {
+            addErrorMessage(name, "Заполните поле 'Имя'");
+            return isValid;
+        }
+        if (!surname.value) {
+            addErrorMessage(surname, "Заполните поле 'Фамилия'");
+            return isValid;
+        }
+        if (!phone.value) {
+            addErrorMessage(phone, "Заполните поле 'Телефон'");
+            return isValid;
+        }
+        if (!email.value || !emailPattern.test(email.value)) {
+            addErrorMessage(email, "Введите корректный email");
+            return isValid;
+        }
+
+        return isValid;
+    }
+
+    // Получаем данные корзины из localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartSummary = document.getElementById('cart-summary');
+
+    // Заполняем список товаров корзины
+    cart.forEach(item => {
+        let li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price}₽`;
+        cartSummary.appendChild(li);
+    });
+
+    // Обработка отправки формы
+    document.getElementById('submit-order').onclick = function() {
+        if (!validateForm()) return;
+
+        // Получаем данные из формы
+        let name = document.getElementById('name').value;
+        let surname = document.getElementById('surname').value;
+        let phone = document.getElementById('phone').value;
+        let email = document.getElementById('email').value;
+        let contactMethod = document.getElementById('contact-method').value;
+
+        // Получаем данные из корзины
+        let cartItems = cart.map(item => item.name).join(", ");
+
+        // Формируем данные для отправки
+        let formData = new URLSearchParams();
+        formData.append('entry.1699068643', name);        
+        formData.append('entry.569171124', surname);      
+        formData.append('entry.161967294', phone);        
+        formData.append('entry.1408924563', email);       
+        formData.append('entry.859045358', contactMethod); 
+        formData.append('entry.991677407', cartItems);    
+
+        // Отправка данных через fetch
+        fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSdi_A6pYzMRjIIaByvu_Sig2eDANBITlLfVPOGKdns9fXdLIA/formResponse', {
+            method: 'POST',
+            mode: 'no-cors', 
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        }).then(() => {
+            alert('Заказ оформлен!');
+            localStorage.removeItem('cart'); 
+            window.location.href = 'success.html'; 
+        }).catch((error) => {
+            alert('Произошла ошибка при оформлении заказа.');
+            console.error(error);
+        });
+    }
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

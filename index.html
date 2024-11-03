@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин вышивки</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html">Embroidery Store</a>
+        </div>
+        <div class="contacts">
+            <span>Email: info@embroidery.com</span>
+            <span>Phone: +1234567890</span>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#faq">Частые вопросы</a></li>
+                <li><a href="finished-products.html">Готовые товары</a></li>
+                <li class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Конструктор <span class="arrow">&#9660;</span></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="design.html">Выбор вышивки</a>
+                        <a href="clothes.html">Выбор одежды</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html"><img src="cart-icon.png" alt="Cart"></a>
+        </div>
+    </div>
+    
+</header>
+
+<!-- HTML для кнопки-гамбургера -->
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="navigation" id="nav-menu">
+  <ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="index.html#services">Услуги</a></li>
+    <li><a href="finished-products.html">Готовые товары</a></li>
+    <li><a href="design.html">Выбор вышивки</a></li>
+    <li><a href="clothes.html">Выбор одежды</a></li>
+    <li><a href="cart.html">Корзина</a></li>
+  </ul>
+</div>
+
+
+<!-- Заглавный блок -->
+<section class="hero">
+    <div class="hero-container">
+        <!-- Левая часть с картинками -->
+        <div class="hero-slideshow">
+            <div class="hero-image image1"></div>
+            <div class="hero-image image2"></div>
+            <div class="hero-image image3"></div>
+        </div>
+        
+        <!-- Правая часть с текстом -->
+        <div class="hero-text">
+            <h1>Магазин эксклюзивной вышивки в Санкт-Петербурге</h1>
+            <p>Творчество, которое согревает.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Блок с информацией о магазине -->
+<section id="about" class="about-store scroll-animate">
+    <h2 class="section-title">О нашем магазине</h2>
+    <div class="info-container">
+        <div class="info-block scroll-animate" style="background-image: url('ffb246db860a5f856ce2ff5680sn--odezhda-mashinnaya-vyshivka-na-futbolke-kotiki.jpg');">
+            <h3 class="info-title">Эксклюзивная вышивка</h3>
+            <p>Создаем уникальные вещи, которые станут частью вашего гардероба или интерьера.</p>
+        </div>
+        <div class="info-block scroll-animate" style="background-image: url('ffb246db860a5f856ce2ff5680sn--odezhda-mashinnaya-vyshivka-na-futbolke-kotiki.jpg');">
+            <h3 class="info-title">Высокое качество</h3>
+            <p>Мы используем только премиальные материалы для долговечности и стиля.</p>
+        </div>
+        <div class="info-block scroll-animate" style="background-image: url('ffb246db860a5f856ce2ff5680sn--odezhda-mashinnaya-vyshivka-na-futbolke-kotiki.jpg');">
+            <h3 class="info-title">Доставка по всему миру</h3>
+            <p>Оперативная доставка ваших заказов в любую точку мира.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Блок Услуги -->
+<section class="services" id="services">
+    <div class="services-container">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-info">
+            <div class="service-item">
+                <div class="icon-container">
+                    <img src="gussi.jpg" alt="service1" />
+                </div>
+                <h3>Индивидуальная вышивка</h3>
+                <p>Создаем уникальные дизайны вышивки по вашим эскизам или идеям на любой одежде. Мы можем предложить широкий спектр стилей и цветов, чтобы ваша одежда выглядела совершенно уникально. Наша команда дизайнеров всегда готова помочь с выбором идеального дизайна, который подчеркнет вашу индивидуальность.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="icon-container">
+                    <img src="ffb246db860a5f856ce2ff5680sn--odezhda-mashinnaya-vyshivka-na-futbolke-kotiki.jpg" alt="service2" />
+                </div>
+                <h3>Вышивка логотипов</h3>
+                <p>Мы предлагаем услуги по вышивке логотипов для компаний, спортивных команд и мероприятий. Высокое качество наших вышивок позволяет передать мельчайшие детали логотипа, делая его долговечным и устойчивым к износу. Закажите вышивку на униформе, футболках или других изделиях с вашим фирменным стилем.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="icon-container">
+                    <img src="yilvn1-vishivka-1.jpg" alt="service3" />
+                </div>
+                <h3>Ремонт одежды</h3>
+                <p>Наши мастера умеют устранять повреждения и дефекты на одежде с помощью аккуратной вышивки. Мы можем закрасить пятна, зашить разрывы и даже полностью преобразить старую одежду, добавив на нее новые элементы. Дайте вашей любимой одежде новую жизнь с помощью нашей профессиональной вышивки.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Скрипт для анимации при прокрутке -->
+<script>
+    const serviceItems = document.querySelectorAll('.service-item');
+
+    function handleScrollAnimation() {
+        serviceItems.forEach(item => {
+            const itemPosition = item.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (itemPosition < windowHeight - 100) {
+                item.classList.add('visible');
+            } else {
+                item.classList.remove('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('load', handleScrollAnimation);
+</script>
+
+
+<!-- Каталог товаров -->
+<section class="catalog">
+    <h2 class="section-title">Готовые товары</h2>
+    <div class="carousel-container">
+        <button class="carousel-prev">&#10094;</button>
+        <div class="carousel-wrapper">
+            <div class="carousel-items">
+                <div class="product-card">
+                    <img src="images/ready/1.jpg" alt="Гирлянда Новый Год">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/ready/IMG_1484.jpg" alt="Наволочка Коты">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/ready/IMG_4228.JPG" alt="Сарафан Народный">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/ready/IMG_91311.jpg" alt="Комплект косметичек">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/ready/Ф1.jpg" alt="Майка 'Париж'">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/ready/photo_2024-11-01_14-35-10.jpg" alt="Шевроны">
+                    <div class="overlay">
+                        <a href="finished-products.html">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-next">&#10095;</button>
+    </div>
+</section>
+
+
+<!-- Блок Частые вопросы -->
+<section class="faq scroll-animate" id="faq">
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h3 class="faq-question">Какие ткани можно вышивать?</h3>
+            <div class="faq-answer">
+                <p>Мы можем вышивать на хлопке, льне, шелке, джинсовой ткани и многих других типах материалов. Все зависит от плотности ткани и ваших пожеланий.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Как долго длится процесс вышивки?</h3>
+            <div class="faq-answer">
+                <p>Обычно процесс занимает от 3 до 7 дней, в зависимости от сложности дизайна и объема работы.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Могу ли я заказать индивидуальный дизайн?</h3>
+            <div class="faq-answer">
+                <p>Да, мы с радостью разработаем для вас индивидуальный дизайн вышивки. Наши дизайнеры работают с клиентами для создания уникальных решений.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Какие способы оплаты доступны?</h3>
+            <div class="faq-answer">
+                <p>Мы принимаем банковские карты, электронные платежи и наличные при доставке. Также возможна оплата через системы онлайн-переводов.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Подвал -->
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2024 Магазин вышивки. Все права защищены.</p>
+        <p>Телефон: +7 (911) 123-45-67 | Почта: embroidery@example.com</p>
+    </div>
+</footer>
+
+
+<script >
+    // JavaScript для переключения меню
+    function toggleMenu() {
+  const menu = document.getElementById("nav-menu");
+  menu.classList.toggle("show"); // Переключаем класс .show
+}
+
+</script>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

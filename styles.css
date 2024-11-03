@@ -1,0 +1,1075 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+/* Основные стили */
+body {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4ef;
+    color: #333;
+}
+
+
+/* Шапка */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Занимает всю ширину экрана */
+    background-color: rgba(255, 98, 0, 0.9);
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Распределяем элементы по ширине */
+    align-items: center;
+    max-width: 1200px; /* Фиксированная ширина шапки */
+    margin: 0 auto; /* Центрируем шапку */
+    padding: 10px; /* Отступы внутри шапки */
+}
+
+/* Логотип */
+.logo a {
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.logo a:hover {
+    color: #ffd700; /* Цвет при наведении */
+}
+
+/* Корзина */
+.cart-icon {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon img {
+    width: 30px;  /* Фиксированная ширина */
+    height: 30px; /* Фиксированная высота */
+    object-fit: contain; /* Сохранение пропорций */
+    margin-left: 10px; /* Отступ слева */
+}
+
+
+/* Логотип */
+.logo {
+    font-size: 1.5em; /* Уменьшаем размер заголовка */
+    font-weight: bold;
+}
+
+/* Контакты (почта/телефон) */
+.contacts {
+    font-size: 0.9em;
+    display: flex;
+    gap: 15px; /* Отступ между контактами */
+}
+
+/* Навигация */
+.navigation {
+    display: flex; /* Горизонтальное расположение */
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Горизонтальное расположение */
+    gap: 20px; /* Отступы между элементами меню */
+}
+
+.navigation li {
+    margin-right: 0; /* Убираем лишний отступ */
+    position: relative
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em; /* Размер текста для навигации */
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: #ffd700; /* Цвет при наведении */
+}
+
+
+/* Контент начинается под шапкой */
+.main-content {
+    padding-top: 80px; /* Отступ сверху для контента, чтобы шапка его не перекрывала */
+}
+
+/* Блок о магазине */
+.about-store {
+    padding: 80px 0;
+    background-color: #ffe8cc;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #ff6b35;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: #ff6b35;
+    
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.info-block {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Каталог товаров */
+.catalog {
+    padding: 60px 0;
+    background-color: #fff3e1;
+    text-align: center;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card {
+    width: 250px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Подвал */
+footer {
+    background-color: #cc5500;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    margin: 10px 0;
+}
+
+
+
+
+/* Скрываем выпадающий список по умолчанию */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin-top: 10px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    margin-bottom: 10px;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Показываем меню при нажатии (когда добавлен класс .show) */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Элемент навигации с dropdown */
+.navigation li {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Стрелочка рядом с "Конструктор" */
+.arrow {
+    margin-left: 5px;
+}
+
+
+/* Стили для выпадающего меню */
+.dropbtn {
+    font-family: 'Playfair Display', sans-serif;
+    background-color: rgba(255, 98, 0, 0);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 98, 0, 0.9);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 98, 0, 0.9);
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.show {
+    display: block;
+}
+
+/* Блок Услуги */
+.services {
+    padding: 80px 0;
+    background-color: #f2f2f2;
+    position: relative;
+    overflow: hidden;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 98, 0, 0.2);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.services::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 98, 0, 0.2);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Центрируем текст */
+}
+
+.services-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 300px;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    min-height: 350px;
+    opacity: 0;
+    transform: translateY(50px); /* Начальная позиция для анимации */
+}
+
+.service-item.visible {
+    opacity: 1;
+    transform: translateY(0); /* Элемент "поднимается" в свою позицию */
+    transition: opacity 0.7s ease, transform 0.7s ease; /* Анимация при появлении */
+}
+
+.service-item h3 {
+    font-size: 1.8em;
+    color: #ff6b35;
+    margin: 20px 0;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Иконки */
+.icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #ffe8cc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+.service-item:hover .icon-container {
+    background-color: #ff6b35;
+}
+
+.service-item:hover .icon-container img {
+    filter: none;
+}
+
+/* Стили для заголовка */
+.section-title {
+    font-size: 2.5em;
+    color: #ff6b35;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    text-align: center; /* Центрируем заголовок */
+}
+
+.section-title::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: #ff6b35;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px); /* Начальная позиция блока */
+    transition: opacity 0.7s ease, transform 0.7s ease; /* Плавная анимация */
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0); /* Окончательная позиция блока */
+}
+
+
+/* Блок Частые вопросы */
+.faq {
+    background-color: #f3f4f7;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.faq-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.faq-container.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.faq-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.faq-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.faq-question {
+    font-size: 1.5em;
+    color: #ff6b35;
+    cursor: pointer;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    display: none;
+    font-size: 1em;
+    color: #333;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #ff6b35;
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: #ff6b35;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.carousel-wrapper {
+    overflow: hidden; /* Скрывает карточки за пределами видимой области */
+    width: 100%;
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.product-card {
+    flex: 0 0 25%; /* Карточки занимают 25% ширины контейнера для 4 карточек */
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    width: 100%; /* Заставляем изображения занимать всю ширину карточки */
+    height: 300px; /* Устанавливаем фиксированную высоту изображений для одинакового размера карточек */
+    object-fit: cover; /* Обрезаем изображение, чтобы оно вписывалось в карточку */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.236);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.section-title {
+    margin-top: 0; /* Убираем отступ сверху */
+}
+
+/* Стили checkout */
+
+/* Общий контейнер для оформления заказа */
+.container {
+    display: flex;
+    gap: 20px; /* Расстояние между блоками */
+    justify-content: center; /* Центрирование по горизонтали */
+    margin: 30px auto; /* Центрирование контейнера по горизонтали */
+    max-width: 1200px; /* Ограничение по ширине для общей гармонии */
+}
+
+/* Стиль для блока информации о пользователе */
+
+.user-info {
+    flex: 1.5;
+    padding: 30px;
+    background-color: #f4ede5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px; /* Ограничение ширины полей */
+}
+
+/* Поля формы */
+.user-info label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.user-info input, 
+.user-info select {
+    font-family: 'Playfair Display', sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+/* Стиль для контейнера корзины */
+.cart-summary {
+    flex: 1; /* Правый блок компактнее */
+    padding: 20px;
+    background-color: #f4ede5;
+    border: 1px solid #e0d9d0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Список товаров в корзине */
+#cart-summary {
+    list-style: none;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#cart-summary li {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* Кнопка оформления заказа */
+#submit-order {
+    font-family: 'Playfair Display', sans-serif;
+    width: 100%; /* Кнопка на всю ширину */
+    background-color: #8b4513;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-order:hover {
+    background-color: #a0522d;
+}
+
+
+/* Убираем отступы и прокрутку */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+}
+
+/* Стиль для заглавного блока */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Контейнер для слайдшоу */
+.hero-slideshow {
+    width: 50%; /* Половина ширины */
+    height: 100%; /* Полная высота */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Изображения */
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-image.image1 {
+    background-image: url('images/084.jpg');
+}
+
+.hero-image.image2 {
+    background-image: url('images/IMG_1484.jpg');
+}
+
+.hero-image.image3 {
+    background-image: url('images/IMG_1499.jpg');
+}
+
+/* Правая часть с текстом */
+.hero-text {
+    width: 50%; /* Половина ширины */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    background-color: #fff8ef;
+    border-left: 8px solid #e5a400;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #d88c00;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-text p {
+    font-size: 1.5em;
+    color: #a0522d;
+    font-style: italic;
+}
+
+
+.return-button {
+    display: inline-block; /* Делает ссылку похожей на кнопку */
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #e5a400; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 1.2em; /* Размер шрифта */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.return-button:hover {
+    background-color: #d88c00; /* Цвет фона при наведении */
+}
+
+/* Адаптация  */
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+    }
+    .hero-slideshow {
+        width: 100%; /* На мобильных полная ширина */
+        height: 50vh;
+    }
+    .hero-text {
+        width: 100%; /* На мобильных полная ширина */
+        height: 50vh;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+}
+/* Адаптация для экрана шириной до 768px (планшеты) */
+@media (max-width: 768px) {
+    .header-container, .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-slideshow, .hero-text {
+        width: 100%;
+    }
+
+    .info-container, .services-info, .faq-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .carousel-container {
+        width: 100%;
+    }
+}
+
+/* Адаптация для экрана шириной до 480px (мобильные устройства) */
+@media (max-width: 480px) {
+    .contacts span, .logo a, .cart-icon img {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-store .info-block, .services-info .service-item, .faq-item {
+        padding: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .carousel-items {
+        display: flex;
+        overflow-x: scroll;
+    }
+
+    /* Упрощаем блок часто задаваемых вопросов */
+    .faq-question {
+        font-size: 1.2rem;
+    }
+}
+
+/* Адаптивная навигационная панель только на маленьких экранах */
+@media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+    }
+  
+    .navigation ul {
+      display: none; /* Прячем навигацию по умолчанию */
+      flex-direction: column;
+    }
+  
+    /* Здесь можно добавить кнопку для показа меню, если нужно */
+    .dropdown .dropbtn {
+      display: block;
+    }
+    
+    .cart-icon {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Центрирование блоков "Наши услуги" только на малых экранах */
+  @media (max-width: 768px) {
+    .services-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .service-item {
+      max-width: 80%;
+      margin: 20px auto;
+      text-align: center;
+    }
+  }
+  
+
+  /* Подправляем изображения товаров на мобильных экранах */
+  @media (max-width: 600px) {
+    .product-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  
+  @media (max-width: 768px) {
+    .header-container {
+      display: none; /* Скрываем верхнюю навигацию на мобильных */
+    }
+  
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+  
+    .bottom-nav a {
+      font-size: 0.8em;
+      text-align: center;
+      color: #333;
+    }
+  }
+/* Скрываем навигацию по умолчанию и показываем при клике */
+@media (max-width: 768px) {
+/* Делаем кнопку-гамбургер видимой только на маленьких экранах */
+.menu-icon {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  /* Скрываем навигацию по умолчанию и отображаем при добавлении класса .show */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block; /* Показать кнопку-гамбургер */
+    }
+  
+    .navigation {
+      display: none; /* Скрыть навигацию по умолчанию */
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff8ef;
+      width: 100%;
+    }
+  
+    .navigation.show {
+      display: flex; /* Показать навигацию при наличии класса .show */
+    }
+  
+    .navigation ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+  
+    .navigation li {
+      margin: 5px 0;
+    }
+  
+    .navigation a {
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.1em;
+    }
+  }
+  
+  }
+  .product-card {
+    flex: 0 0 25%; /* 4 карточки на экране по умолчанию */
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+/* Основные стили для карусели */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-items {
+    display: flex;
+}
+
+/* Стили для карточек продуктов */
+.product-card {
+    flex: 0 0 100%; /* Измените на 100% для отображения одного элемента */
+    position: relative;
+}
+
+/* Стили для кнопок */
+.carousel-prev,
+.carousel-next {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+}
+
+/* Меньше элементов на меньших экранах */
+@media (min-width: 768px) {
+    .product-card {
+        flex: 0 0 25%; /* Показать 4 продукта на больших экранах */
+    }
+}
+/* Стили для кнопок */
+.carousel-prev,
+.carousel-next {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+}
+
+/* Скрыть кнопки на маленьких экранах */
+@media (max-width: 767px) {
+    .carousel-prev,
+    .carousel-next {
+        display: none; /* Скрываем кнопки для устройств с шириной экрана меньше 768px */
+    }
+}

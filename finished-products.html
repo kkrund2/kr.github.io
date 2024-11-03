@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Готовые товары</title>
+    <link rel="stylesheet" href="fin.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Embroidery Store</a>
+            </div>
+            <div class="contacts">
+                <span>Email: info@embroidery.com</span>
+                <span>Phone: +1234567890</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#faq">Частые вопросы</a></li>
+                    <li><a href="finished-products.html">Готовые продукты</a></li>
+                    <li class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Конструктор <span class="arrow">&#9660;</span></button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="design.html">Выбор вышивки</a>
+                            <a href="clothes.html">Выбор одежды</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html"><img src="cart-icon.png" alt="Cart"></a>
+            </div>
+        </div>
+    </header>
+
+
+        <!-- Заголовок страницы с подчеркиванием -->
+        <section class="page-header">
+            <h1>Готовые товары</h1>
+            <div class="underline"></div>
+        </section>
+    <!-- Текстовый блок -->
+    <section class="intro-text">
+        <p>Здесь вы найдете коллекцию уникальных вышитых изделий, созданных с любовью и вниманием к деталям. Каждая вещь отражает наш стиль и качество, которые радуют наших клиентов. Выбирайте любимый дизайн и создайте свой неповторимый образ!</p>
+    </section>
+
+    <!-- Карточки товаров -->
+    <section class="products-section">
+
+        <div class="product-card" onclick="openModal('product1')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/1.jpg" alt="Гирлянда Новый Год" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Гирлянда Новый Год</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Гирлянда Новый Год" data-price="1000" data-image="images/ready/1.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product2')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/Изображение 016.jpg" alt="Мешочки для хранения трав" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Мешочки для трав</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Мешочки для хранения трав" data-price="1000" data-image="images/ready/Изображение 016.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product3')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/IMG_1484.jpg" alt="Наволочка Коты" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Наволочка Коты</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Наволочка Коты" data-price="500" data-image="images/ready/IMG_1484.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product4')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/Ф1.jpg" alt="Товар" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Майка "Париж"</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Майка 'Париж'" data-price="1000" data-image="images/ready/Ф1.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product5')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/photo_2024-11-01_14-35-10.jpg" alt="Шевроны" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Шевроны</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Шевроны" data-price="1000" data-image="images/ready/photo_2024-11-01_14-35-10.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product6')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/photo_2024-11-01_14-31-18.jpg" alt="Худи Бабочки" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Худи Бабочки</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Худи Бабочки" data-price="1000" data-image="images/ready/photo_2024-11-01_14-31-18.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product7')">
+            <div class="product-card-image-wrapper">
+                <img src="yilvn1-vishivka-1.jpg" alt="Худи Котенок Гав" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Худи Котенок Гав</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Худи Котенок Гав" data-price="1000" data-image="yilvn1-vishivka-1.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product8')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/царь1.jpg" alt="Футболка Царь" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Футболка Царь</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Футболка Царь" data-price="1000" data-image="images/ready/царь1.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product9')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/IMG_91311.jpg" alt="Комплект косметичек" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Комплект косметичек</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Комплект косметичек" data-price="1000" data-image="images/ready/IMG_91311.jpg">Купить</button>
+            </div>
+        </div>
+        <div class="product-card" onclick="openModal('product10')">
+            <div class="product-card-image-wrapper">
+                <img src="images/ready/IMG_4228.JPG" alt="Сарафан Народный" class="product-image">
+            </div>
+            <div class="product-card-content">
+                <h2 class="product-title">Сарафан Народный</h2>
+                <p class="product-price">Цена: 1000₽</p>
+                <button class="add-to-cart" data-name="Сарафан Народный" data-price="1000" data-image="images/ready/IMG_4228.JPG">Купить</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img src="yilvn1-vishivka-1.jpg" alt="Товар" id="modalImage" class="modal-image">
+                <button class="prev" onclick="prevImage()">&#10094;</button>
+                <button class="next" onclick="nextImage()">&#10095;</button>
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle">Кофта "Сердце"</h2>
+                <p id="modalDescription">Описание товара...</p>
+                <p id="modalPrice">Цена: 1000₽</p>
+                <button class="add-to-cart" onclick="addToCart()">Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="fin.js"></script>
+    <footer>
+        <p>&copy; 2024 Магазин вышивки. Все права защищены.</p>
+    </footer>
+</body>
+</html>

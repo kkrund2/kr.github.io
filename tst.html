@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор дизайна</title>
+    <link rel="stylesheet" href="fin.css">
+</head>
+<body>
+    <!-- Хедер -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Embroidery Store</a>
+            <nav class="navigation">
+                <!-- Ваши ссылки навигации -->
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html"><img src="cart-icon.png" alt="Корзина"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Заголовок -->
+    <main>
+        <h1 class="main-title">Выбор дизайна</h1>
+
+        <!-- Контейнер для карточек -->
+        <div class="card-container">
+            <!-- Карточки товаров -->
+            <div class="product-card" onclick="openProductModal('Дизайн 1', '1000 ₽', 'design1.jpg', 'Описание дизайна 1')">
+                <img src="design1.jpg" alt="Дизайн 1" />
+                <h2>Дизайн 1</h2>
+                <p class="price">1000 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 2', '1200 ₽', 'design2.jpg', 'Описание дизайна 2')">
+                <img src="design2.jpg" alt="Дизайн 2" />
+                <h2>Дизайн 2</h2>
+                <p class="price">1200 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 3', '1300 ₽', 'design3.jpg', 'Описание дизайна 3')">
+                <img src="design3.jpg" alt="Дизайн 3" />
+                <h2>Дизайн 3</h2>
+                <p class="price">1300 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 4', '1400 ₽', 'design4.jpg', 'Описание дизайна 4')">
+                <img src="design4.jpg" alt="Дизайн 4" />
+                <h2>Дизайн 4</h2>
+                <p class="price">1400 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 5', '1500 ₽', 'design5.jpg', 'Описание дизайна 5')">
+                <img src="design5.jpg" alt="Дизайн 5" />
+                <h2>Дизайн 5</h2>
+                <p class="price">1500 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 6', '1600 ₽', 'design6.jpg', 'Описание дизайна 6')">
+                <img src="design6.jpg" alt="Дизайн 6" />
+                <h2>Дизайн 6</h2>
+                <p class="price">1600 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 7', '1700 ₽', 'design7.jpg', 'Описание дизайна 7')">
+                <img src="design7.jpg" alt="Дизайн 7" />
+                <h2>Дизайн 7</h2>
+                <p class="price">1700 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 8', '1800 ₽', 'design8.jpg', 'Описание дизайна 8')">
+                <img src="design8.jpg" alt="Дизайн 8" />
+                <h2>Дизайн 8</h2>
+                <p class="price">1800 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 9', '1900 ₽', 'design9.jpg', 'Описание дизайна 9')">
+                <img src="design9.jpg" alt="Дизайн 9" />
+                <h2>Дизайн 9</h2>
+                <p class="price">1900 ₽</p>
+            </div>
+            <div class="product-card" onclick="openProductModal('Дизайн 10', '2000 ₽', 'design10.jpg', 'Описание дизайна 10')">
+                <img src="design10.jpg" alt="Дизайн 10" />
+                <h2>Дизайн 10</h2>
+                <p class="price">2000 ₽</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для карточек -->
+    <div id="productModal" class="modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modalImage" src="" alt="Product Image" />
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle">Product Title</h2>
+                <p id="modalDescription"></p>
+                <p id="modalPrice">$0.00</p>
+                <button id="buyBtn" onclick="addToCart()">Купить</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция открытия модального окна
+        function openProductModal(title, price, image, description) {
+            document.getElementById("modalTitle").textContent = title;
+            document.getElementById("modalPrice").textContent = price;
+            document.getElementById("modalImage").src = image;
+            document.getElementById("modalDescription").textContent = description;
+            document.getElementById("productModal").style.display = "flex";
+        }
+
+        // Функция закрытия модального окна
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+
+        // Функция добавления товара в корзину
+        function addToCart() {
+            const productName = document.getElementById("modalTitle").textContent;
+            const productPrice = document.getElementById("modalPrice").textContent;
+            const productImage = document.getElementById("modalImage").src;
+            
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: productName, price: productPrice, image: productImage });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${productName} добавлен в корзину!`);
+            closeModal();
+        }
+
+        // Закрытие модального окна при нажатии вне его
+        function closeModalOnOutsideClick(event) {
+            const modal = document.getElementById("productModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

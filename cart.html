@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Корзина</title>
+    <link rel="stylesheet" href="cart-styles.css">
+</head>
+<body>
+<!-- Шапка -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html">Embroidery Store</a>
+        </div>
+        <div class="contacts">
+            <span>Email: info@embroidery.com</span>
+            <span>Phone: +1234567890</span>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#faq">Частые вопросы</a></li>
+                <li><a href="finished-products.html">Готовые продукты</a></li>
+                <li class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Конструктор <span class="arrow">&#9660;</span></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="design.html">Выбор вышивки</a>
+                        <a href="clothes.html">Выбор одежды</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html"><img src="cart-icon.png" alt="Cart"></a>
+        </div>
+    </div>
+</header>
+
+<h1>Корзина</h1>
+<ul id="cart-items"></ul>
+
+<!-- Общая стоимость -->
+<div class="total-price-container">
+    <p id="total-price">Общая стоимость: 0₽</p>
+</div>
+
+<button id="checkout">Оформить заказ</button>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartItems = document.getElementById('cart-items');
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+        let li = document.createElement('li');
+        
+        let img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.name;
+        img.style.width = '80px';
+        img.style.height = '80px';
+        img.style.marginRight = '20px';
+        
+        let itemInfo = document.createElement('div');
+        itemInfo.textContent = `${item.name} - ${item.price}₽`;
+
+        let removeButton = document.createElement('button');
+        removeButton.textContent = 'Удалить';
+        removeButton.classList.add('remove-btn');
+        removeButton.onclick = function() {
+            if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload();
+            }
+        };
+
+        li.appendChild(img);
+        li.appendChild(itemInfo);
+        li.appendChild(removeButton);
+        cartItems.appendChild(li);
+
+        totalPrice += parseInt(item.price);
+    });
+
+    document.getElementById('total-price').textContent = `Общая стоимость: ${totalPrice}₽`;
+
+    document.getElementById('checkout').onclick = function() {
+        if (cart.length === 0) {
+            alert('Корзина пуста! Добавьте товары, чтобы оформить заказ.');
+        } else {
+            window.location.href = 'checkout.html';
+        }
+    };
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

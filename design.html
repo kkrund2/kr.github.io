@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор дизайна</title>
+    <link rel="stylesheet" href="filter-page-styles.css">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html">Embroidery Store</a>
+        </div>
+        <div class="contacts">
+            <span>Email: info@embroidery.com</span>
+            <span>Phone: +1234567890</span>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#faq">Частые вопросы</a></li>
+                <li><a href="finished-products.html">Готовые продукты</a></li>
+                <li class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Конструктор <span class="arrow">&#9660;</span></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="design.html">Выбор вышивки</a>
+                        <a href="clothes.html">Выбор одежды</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <a href="cart.html"><img src="cart-icon.png" alt="Cart"></a>
+        </div>
+    </div>
+</header>
+
+<!-- Основной контейнер с фильтром и карточками -->
+<div class="main-container">
+
+    <!-- Блок фильтра -->
+    <div class="filter">
+        <h2>Фильтр</h2>
+        <label><input type="checkbox" value="animals" onchange="applyFilter()"> Животные</label>
+        <label><input type="checkbox" value="flowers" onchange="applyFilter()"> Цветы</label>
+        <label><input type="checkbox" value="city" onchange="applyFilter()"> Города</label>
+        <label><input type="checkbox" value="mult" onchange="applyFilter()"> Мультфильмы</label>
+        <label><input type="checkbox" value="newyear" onchange="applyFilter()"> Новый Год</label>
+    </div>
+
+    <div class="content">
+        <!-- Информационный блок -->
+        <div class="info-block">
+            <p>Здесь вы можете выбрать дизайн для вашего продукта. Используйте фильтр, чтобы упростить поиск.</p>
+        </div>
+
+        <!-- Список карточек товаров -->
+        <section class="product-list" id="product-list">
+            <!-- Пример карточек товаров -->
+        <div class="product-card" data-category="animals">
+            <img src="images/bmNGYvNAJvo.jpg" alt="Дизайн Щенок">
+            <h3>Дизайн Щенок</h3>
+            <p>Цена: 500₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Щенок', 500, 'images/bmNGYvNAJvo.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="flowers">
+            <img src="images/utFkCoIz_DI.jpg" alt="Дизайн Лаванда">
+            <h3>Дизайн Лаванда</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Лаванда', 600, 'images/utFkCoIz_DI.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/W2oaE71eRPM.jpg" alt="Дизайн Эйфелева башня">
+            <h3>Дизайн Эйфелева башня</h3>
+            <p>Цена: 550₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Эйфелева башня', 550, 'images/W2oaE71eRPM.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/ASyq4C9tPJ8.jpg" alt="Дизайн Чебурашка">
+            <h3>Дизайн Чебурашка</h3>
+            <p>Цена: 650₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Чебурашка', 650, 'images/ASyq4C9tPJ8.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="newyear">
+            <img src="images/_H9RVbc_C54.jpg" alt="Дизайн Снегири">
+            <h3>Дизайн Снегири</h3>
+            <p>Цена: 700₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Снегири', 700, 'images/_H9RVbc_C54.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="flowers">
+            <img src="images/AiWDvS7NCeQ.jpg" alt="Дизайн Подсолнухи">
+            <h3>Дизайн Подсолнухи</h3>
+            <p>Цена: 400₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Подсолнухи', 400, 'images/AiWDvS7NCeQ.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="animals">
+            <img src="images/129mbrqf_fE.jpg" alt="Дизайн Попугаи">
+            <h3>Дизайн Попугаи</h3>
+            <p>Цена: 500₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Попугаи', 500, 'images/129mbrqf_fE.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/O05Ny0w22os.jpg" alt="Кот Матроскин">
+            <h3>Дизайн Кот Матроскин</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Кот Матроскин', 600, 'images/O05Ny0w22os.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/kYOgkxQQp60.jpg" alt="Дизайн Лондон">
+            <h3>Дизайн Лондон</h3>
+            <p>Цена: 700₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Лондон', 700, 'images/kYOgkxQQp60.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="newyear">
+            <img src="images/8zkQm9WH2rw.jpg" alt="Дизайн Дед Мороз">
+            <h3>Дизайн Дед Мороз</h3>
+            <p>Цена: 400₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Дед Мороз', 400, 'images/8zkQm9WH2rw.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/Gojo.jpg" alt="Дизайн Аниме">
+            <h3>Дизайн Аниме</h3>
+            <p>Цена: 500₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Аниме', 500, 'images/Gojo.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="flowers">
+            <img src="images/fycAoYayJME.jpg" alt="Дизайн Венки">
+            <h3>Дизайн Венки</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Венки', 600, 'images/fycAoYayJME.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="flowers">
+            <img src="images/X_HFA892Szk.jpg" alt="Дизайн Ирис">
+            <h3>Дизайн Ирис</h3>
+            <p>Цена: 700₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Ирис', 700, 'images/X_HFA892Szk.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/qHVH42rMHIA.jpg" alt="Дизайн Кремль">
+            <h3>Дизайн Кремль</h3>
+            <p>Цена: 400₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Кремль', 400, 'images/qHVH42rMHIA.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="animals">
+            <img src="images/VQQOXKuj0og.jpg" alt="Дизайн Крылья">
+            <h3>Дизайн Крылья</h3>
+            <p>Цена: 500₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Крылья', 500, 'images/VQQOXKuj0og.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="animals">
+            <img src="images/5KNDXh_LxBM.jpg" alt="Дизайн Сова">
+            <h3>Дизайн Сова</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Сова', 600, 'images/5KNDXh_LxBM.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/uVHx5tUhCUM.jpg" alt="Дизайн Микки Маус">
+            <h3>Дизайн Микки Маус</h3>
+            <p>Цена: 700₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Микки Маус', 700, 'images/uVHx5tUhCUM.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/ciRmYg6u1w0.jpg" alt="Дизайн Столицы">
+            <h3>Дизайн Столицы</h3>
+            <p>Цена: 500₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Столицы', 500, 'images/ciRmYg6u1w0.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/oznmWyAkb0k.jpg" alt="Дизайн Человек Паук">
+            <h3>Дизайн Человек Паук</h3>
+            <p>Цена: 400₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Человек Паук', 400, 'images/oznmWyAkb0k.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/cdiYImNEe8I.jpg" alt="Дизайн Петербург">
+            <h3>Дизайн Петербург</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Петербург', 600, 'images/cdiYImNEe8I.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="newyear">
+            <img src="images/aSQkw2qmBhA.jpg" alt="Дизайн Дед Мороз">
+            <h3>Дизайн Дед Мороз</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Дед Мороз', 600, 'images/aSQkw2qmBhA.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/6hJWATP01XQ.jpg" alt="Дизайн Микки и Минни">
+            <h3>Дизайн Микки и Минни</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Микки и Минни', 600, 'images/6hJWATP01XQ.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="flowers">
+            <img src="images/_q2X9TXA6HU.jpg" alt="Дизайн Фуксия">
+            <h3>Дизайн Фуксия</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Фуксия', 600, 'images/_q2X9TXA6HU.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="city">
+            <img src="images/fDg1Zpvceu4.jpg" alt="Дизайн Китай">
+            <h3>Дизайн Китай</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Китай', 600, 'images/fDg1Zpvceu4.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="newyear">
+            <img src="images/08YI-eZULUw.jpg" alt="Новогодний дом">
+            <h3>Дизайн Новогодний дом</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Новогодний дом', 600, 'images/08YI-eZULUw.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="mult">
+            <img src="images/PnTLdYfiyNM.jpg" alt="Дизайн Волк НУ, ПОГОДИ!">
+            <h3>Дизайн Волк НУ, ПОГОДИ!</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Волк НУ, ПОГОДИ!', 600, 'images/PnTLdYfiyNM.jpg')">Купить</button>
+        </div>
+        <div class="product-card" data-category="animals">
+            <img src="images/qNW1xwLtqqs.jpg" alt="Дизайн Мышонок">
+            <h3>Дизайн Мышонок</h3>
+            <p>Цена: 600₽</p>
+            <button class="buy-btn" onclick="addToCart('Дизайн Мышонок', 600, 'images/qNW1xwLtqqs.jpg')">Купить</button>
+        </div>
+        </section>
+    </div>
+</div>
+<div class="pagination">
+    <button id="prev-button" onclick="changePage(-1)">« Предыдущая</button>
+    <span id="page-info"></span>
+    <button id="next-button" onclick="changePage(1)">Следующая »</button>
+</div>
+<footer>
+    <p>&copy; 2024 Магазин вышивки. Все права защищены.</p>
+</footer>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+ // Функция для добавления товара в корзину
+ function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, image });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Товар добавлен в корзину!');
+}
+</script>
+<script src="scr.js"></script>
+
+</body>
+</html>

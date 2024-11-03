@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Выбор одежды</title>
+    <link rel="stylesheet" href="construct-styles.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="index.html">Embroidery Store</a></div>
+            <div class="contacts">
+                <span>Email: info@embroidery.com</span>
+                <span>Phone: +1234567890</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#faq">Частые вопросы</a></li>
+                    <li><a href="finished-products.html">Готовые продукты</a></li>
+                    <li class="dropdown">
+                        <button onclick="toggleDropdown()" class="dropbtn">
+                            Конструктор <span class="arrow">&#9660;</span>
+                        </button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="design.html">Выбор дизайна</a>
+                            <a href="clothes.html">Выбор одежды</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html"><img src="cart-icon.png" alt="Cart" /></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="main-title">Выбор одежды</h1>
+        <div class="info-text">
+            <p>
+                На этой странице вы можете выбрать экземпляр любого цвета для создания
+                на нем вышивки.
+            </p>
+        </div>
+
+        <!-- Карточки товаров -->
+        <div class="card-container">
+            <div class="product-card"
+                onclick="openProductModal('Худи', '2000 ₽', 'yilvn1-vishivka-1.jpg', 'Удобное худи с мягкой тканью, идеально подходит для повседневной носки.')">
+                <img src="yilvn1-vishivka-1.jpg" alt="Худи" />
+                <h2>Худи</h2>
+                <p class="price">Цена: 2000 ₽</p>
+            </div>
+            <div class="product-card"
+                onclick="openProductModal('Футболка', '1000 ₽', 'tshirt.jpg', 'Классическая футболка из высококачественного хлопка.')">
+                <img src="gussi.jpg" alt="Футболка" />
+                <h2>Футболка</h2>
+                <p class="price">Цена: 1000 ₽</p>
+            </div>
+            <div class="product-card"
+                onclick="openProductModal('Кофта', '1500 ₽', 'sweater.jpg', 'Мягкая кофта с уютным кроем, идеально для прохладных вечеров.')">
+                <img src="ffb246db860a5f856ce2ff5680sn--odezhda-mashinnaya-vyshivka-na-futbolke-kotiki.jpg"
+                    alt="Кофта" />
+                <h2>Кофта</h2>
+                <p class="price">Цена: 1500 ₽</p>
+            </div>
+            <div class="product-card"
+                onclick="openProductModal('Шевроны', '800 ₽', 'cap.jpg', 'Стильная кепка, защищает от солнца и добавляет стиль вашему образу.')">
+                <img src="yilvn1-vishivka-1.jpg" alt="Шевроны" />
+                <h2>Шевроны</h2>
+                <p class="price">Цена: 800 ₽</p>
+            </div>
+            <div class="product-card" onclick="openCustomProductModal()">
+                <img src="gussi.jpg" alt="Мой уникальный товар" />
+                <h2>Мой уникальный товар</h2>
+                <p class="price">Цена: 1500 ₽</p>
+            </div>
+        </div>
+
+        <div class="info-text">
+            <p>
+                <span class="icon">&#x2709;</span> Не нашли нужный товар? Напишите нам
+                на info@embroidery.com.
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Магазин вышивки. Все права защищены.</p>
+        </footer>
+    </main>
+
+    <!-- Модальное окно -->
+    <div id="productModal" class="modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- Предотвращаем всплытие клика -->
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modalImage" src="" alt="Product Image" />
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle">Product Title</h2>
+                <p id="modalDescription"></p>
+                <p id="modalPrice">$0.00</p>
+                <select id="colorSelect" onchange="toggleBuyButton()">
+                    <option value="">Выберите цвет</option>
+                    <option value="Белый">Белый</option>
+                    <option value="Черный">Черный</option>
+                    <option value="Серый">Серый</option>
+                    <option value="Розовый">Розовый</option>
+                    <option value="Зелёный">Зелёный</option>
+                    <option value="Другой">Другой</option>
+                </select>
+                <button id="buyBtn" onclick="addToCart()" disabled>Купить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для уникального товара -->
+    <div id="myCustomProduct" class="modal" onclick="closeCustomProductModalOnOutsideClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- Предотвращаем всплытие клика -->
+            <span class="close-btn" onclick="closeCustomProductModal()">&times;</span>
+            <div class="modal-left">
+                <img src="images/my_custom_product.jpg" alt="Мой уникальный товар" />
+            </div>
+            <div class="modal-right">
+                <h2>Мой уникальный товар</h2>
+                <p>
+                    Описание моего уникального товара, чтобы покупатель мог узнать
+                    больше о его особенностях.
+                </p>
+                <p class="price">Цена: 1500 ₽</p>
+                <select id="customColorSelect" onchange="toggleCustomBuyButton()">
+                    <option value="">Выберите цвет</option>
+                    <option value="Любой">Любой</option>
+                </select>
+                <button id="customBuyBtn" onclick="addCustomToCart()" disabled>
+                    Купить
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProductModal(title, price, image, description) {
+            document.getElementById("modalTitle").textContent = title;
+            document.getElementById("modalPrice").textContent = price;
+            document.getElementById("modalImage").src = image;
+            document.getElementById("modalDescription").textContent = description;
+            document.getElementById("productModal").style.display = "flex";
+        }
+
+        function openCustomProductModal() {
+            document.getElementById("myCustomProduct").style.display = "flex";
+        }
+
+        function closeCustomProductModal() {
+            document.getElementById("myCustomProduct").style.display = "none";
+        }
+
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+
+        function toggleBuyButton() {
+            const colorSelect = document.getElementById("colorSelect");
+            const buyBtn = document.getElementById("buyBtn");
+            buyBtn.disabled = colorSelect.value === "";
+        }
+
+        function toggleCustomBuyButton() {
+            const customColorSelect = document.getElementById("customColorSelect");
+            const customBuyBtn = document.getElementById("customBuyBtn");
+            customBuyBtn.disabled = customColorSelect.value === "";
+        }
+
+        function addToCart() {
+            const productName = document.getElementById("modalTitle").textContent;
+            const productPrice = document.getElementById("modalPrice").textContent;
+            const productColor = document.getElementById("colorSelect").value;
+            const productImage = document.getElementById("modalImage").src;
+
+            if (productColor === "") {
+                alert("Пожалуйста, выберите цвет перед добавлением в корзину.");
+                return;
+            }
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({
+                name: `${productName} (${productColor})`,
+                price: productPrice,
+                image: productImage,
+            });
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert(`${productName} (${productColor}) добавлен в корзину!`);
+            closeModal();
+        }
+
+        function addCustomToCart() {
+            const productName = "Мой уникальный товар";
+            const productPrice = "1500 ₽";
+            const productColor = document.getElementById("customColorSelect").value;
+            const productImage = "images/my_custom_product.jpg";
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({
+                name: `${productName} (${productColor})`,
+                price: productPrice,
+                image: productImage,
+            });
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert(`${productName} (${productColor}) добавлен в корзину!`);
+            closeCustomProductModal();
+        }
+
+        function closeModalOnOutsideClick(event) {
+            const modal = document.getElementById("productModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        function closeCustomProductModalOnOutsideClick(event) {
+            const modal = document.getElementById("myCustomProduct");
+            if (event.target === modal) {
+                closeCustomProductModal();
+            }
+        }
+
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Закрытие выпадающего меню при клике вне его
+        window.onclick = function (event) {
+            if (!event.target.matches(".dropbtn")) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Основные стили */
+body {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4ef;
+    color: #333;
+}
+
+/* Шапка */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 98, 0, 0.9);
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Логотип */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: #ffd700;
+}
+
+/* Корзина */
+.cart-icon {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+/* Контакты */
+.contacts {
+    font-size: 0.9em;
+    display: flex;
+    gap: 15px;
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: #ffd700;
+}
+
+/* Контент */
+.main-content {
+    padding-top: 80px;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    font-family: 'Playfair Display', sans-serif;
+    background-color: rgba(255, 98, 0, 0);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 98, 0, 0.9);
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.show {
+    display: block;
+}
+
+/* Оформление карточек */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.product-card {
+    width: 45%; /* Карточки занимают 45% ширины контейнера */
+    max-width: 600px; /* Ограничиваем максимальную ширину */
+    height: 500px; /* Увеличиваем высоту карточки */
+    background-color: #f4ede5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 70%; /* Изображение занимает 70% высоты карточки */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-card h2 {
+    font-size: 1.3em;
+    margin: 10px 0 5px;
+}
+
+.product-card .price {
+    font-size: 1.2em;
+    color: #8b4513;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.product-card.open {
+    width: 90%; /* Пример увеличения ширины */
+    height: auto; /* Автоматическая высота */
+    transition: all 0.3s ease;
+}
+
+
+
+
+/* Кнопка покупки */
+.buy-btn {
+    background-color: #8b4513;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #6f3410;
+}
+
+/* Стили модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    display: flex;
+    background: #fff;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.modal-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-left img {
+    max-width: 100%;
+    max-height: 400px; /* Фиксированный размер изображения */
+    object-fit: cover;
+}
+
+.modal-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+#buyBtn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d27410;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#buyBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#buyBtn:not(:disabled):hover {
+    background-color: #83b300;
+}
+
+.main-title {
+    padding-top: 100px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.info-text, .contact-text {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff8e1;
+}
+
+.icon {
+    margin-right: 8px;
+    color: #ff6347;
+}
+
+#customBuyBtn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d27410;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#customBuyBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#customBuyBtn:not(:disabled):hover {
+    background-color: #83b300;
+}
+
+
+/* Подвал */
+footer {
+    background-color: #cc5500;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Подвал прижимается к низу страницы */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    margin: 10px 0;
+}
+
+
